@@ -65,10 +65,8 @@ if compat.is_win:
                 for lib_file in os.listdir(lib_dir)
             ]
 
-            geos_c_dll_found |= any([
-                os.path.basename(lib_file).startswith("geos_c")
-                for lib_file, _ in datas
-            ])
+            geos_c_dll_found |= any(os.path.basename(lib_file).startswith("geos_c")
+                for lib_file, _ in datas)
 
     if not geos_c_dll_found:
         raise SystemExit(
